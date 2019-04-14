@@ -1,0 +1,20 @@
+<section class='header'>
+  <div class='header-right'>
+      <a routerLink='/'>Home</a>
+      <a routerLink='/about'>About</a>
+      <a routerLink='/contact'>Contact</a>
+      
+      <span *ngIf="authService.isAuthenticated()">
+        <a routerLink='/'>Welcome {{username}}!</a>
+        <a routerLink='/order'>My Orders</a>
+        <span *ngIf="authService.isAdmin()">
+          <a routerLink="/create">Create</a>
+        </span>
+        <a routerLink='/' (click)="logout()">Logout</a>
+      </span>
+      <span *ngIf="!authService.isAuthenticated()">
+        <a class="nav-link" routerLink="/login">Login</a>
+        <a class="nav-link" routerLink="/register">Register</a>
+      </span>
+  </div>
+</section>

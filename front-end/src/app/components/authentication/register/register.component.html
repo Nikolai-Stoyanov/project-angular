@@ -1,0 +1,50 @@
+<!-- <div className="Register">
+  <h1>Register</h1>
+  <form onSubmit={(e)=> this.props.handleSubmit(e,this.state,'signup')}>
+    <label htmlFor="username">Username</label>
+    <input type="text" onChange={this.handleChange} name="username" placeholder="Ivan Ivanov" />
+    <label htmlFor="email">Email</label>
+    <input type="text" onChange={this.handleChange} name="email" placeholder="ivanov@gmail.com" />
+    <label htmlFor="password">Password</label>
+    <input type="password" onChange={this.handleChange} name="password" placeholder="******" />
+    <input type="submit" value="REGISTER" />
+  </form>
+</div> -->
+
+<div class="Register">
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <h1>Register</h1>
+      <form [formGroup]='form' (submit)='register(form.value)'>
+        <label for="username">Username</label>
+        <input class="form-control" placeholder="Ivan" formControlName='username'>
+        <div class="alert alert-danger" *ngIf='f.username.touched && f.username.errors?.required'>
+          Name is required!
+        </div>
+        <label for="email">Email</label>
+        <input class="form-control" placeholder="ivanov@gmail.com" type="email" formControlName='email'>
+
+        <div class="alert alert-danger" *ngIf='f.email.touched && f.email.errors?.required'>
+          Email is required!
+        </div>
+        <div class="alert alert-danger" *ngIf='f.email.errors?.pattern'>
+          Email must be in format : example@example.com!
+        </div>
+        <label for="password">Password</label>
+        <input class="form-control" placeholder="******" type="password" formControlName='password'>
+        <div class="alert alert-danger" *ngIf='f.password.touched && f.password.errors?.required'>
+          Password is required!
+        </div>
+        <div class="alert alert-danger" *ngIf='f.password.errors?.pattern'>
+          Password must contain digits and chars!
+        </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block" [disabled]='f.invalid'> Create Account </button>
+          </div>
+          <p class="text-center">Have an account? <a href="/login">Log In</a> </p>
+      </form>
+    </div>
+  </div>
+</div>

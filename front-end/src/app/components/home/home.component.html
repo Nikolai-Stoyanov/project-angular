@@ -1,0 +1,41 @@
+<div>
+  <section class='home-first'>
+    <h2>Best food for your best friend!</h2>
+  </section>
+  <section class="Home">
+    <h1>What we offer</h1>
+    <div class="all-products">
+      <ul class="products">
+        <div class="row space-top" *ngIf='dogfoods$; else loading'>
+          <div class="col-md-4" *ngFor='let food of dogfoods$ | async'>
+            <li class="product">
+              <section>
+                <h5>{{food.title}}</h5>
+                <img alt="pic" src={{food.imageUrl}}/>
+              </section>
+              <div class="butons">
+                <a class="btn" type='button' routerLink="['/details/',food.id]">Details </a> 
+                <div *ngIf=''>
+                  <a classe="btn" type='button' [routerLink]="['/buy/',food.id]">Buy </a> 
+                </div> 
+                <div *ngIf=''>
+                    <a class="btn" type='button' [routerLink]="['/edit/',food.id]">Edit </a> 
+                    <a class="btn" type='button' [routerLink]="['/delete/',food.id]">Delete </a>
+                </div> 
+              </div> 
+            </li> 
+          </div> 
+        </div>
+      </ul>
+    </div>
+    <ng-template #loading>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 text-center" >
+                <h1>Loading</h1>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+    </ng-template>
+  </section>
+</div>
