@@ -15,9 +15,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
-  //  {
-  //   path: 'posts', loadChildren:'./components/post/post.module#PostModule',canLoad:[AuthGuard]
-  // },
+   {
+    path: 'dogFood', loadChildren:'./components/dog-food/dog-food.module#DogFoodModule'
+  },
 
 ];
 

@@ -4,11 +4,33 @@ import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { DetailsComponent } from './details/details.component';
 import { PurchaseComponent } from './purchase/purchase.component';
+import { DogFoodService } from 'src/app/core/services/dog-food.sevices';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ListComponent } from './list/list.component';
+import { DogFoodRoutingModule } from './dog-food-routing.module';
 
 @NgModule({
-  declarations: [CreateComponent, EditComponent, DetailsComponent, PurchaseComponent],
+  declarations: [
+    CreateComponent, 
+    EditComponent, 
+    DetailsComponent, 
+    PurchaseComponent, 
+    ListComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    DogFoodRoutingModule
+  ],
+  exports:[
+    CreateComponent, 
+    EditComponent, 
+    DetailsComponent, 
+    PurchaseComponent, 
+    ListComponent
+  ],
+  providers: [
+    DogFoodService,
   ]
 })
 export class DogFoodModule { }

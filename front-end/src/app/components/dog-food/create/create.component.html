@@ -1,3 +1,81 @@
-<p>
-  create works!
-</p>
+<div class="Create col-md-3">
+  <h1>Create DogFood</h1>
+  <form [formGroup]='form' (submit)='createFood()'>
+    <div>
+      <label htmlFor="title">Title</label>
+      <input type="text" id="title" formControlName='title' />
+    </div>
+    <div class="alert alert-danger" *ngIf='f.title.touched && f.title.errors?.required'>
+      Title is required
+    </div>
+    <div class="alert alert-danger" *ngIf='f.title.errors?.minlength'>
+      Title must have at least 4 letter!
+    </div>
+    <div>
+      <label htmlFor="brand">Brand</label>
+      <input type="text" id="brand" formControlName='brand' />
+    </div>
+    <div class="alert alert-danger" *ngIf='f.brand.touched && f.brand.errors?.required'>
+      Brand is required
+    </div>
+    <div class="alert alert-danger" *ngIf='f.brand.errors?.minlength'>
+      Brand must have at least 4 letter!
+    </div>
+    <div>
+      <label htmlFor="imageUrl">Picture</label>
+      <input type="text" id="imageUrl" formControlName='imageUrl' />
+    </div>
+    <div class="alert alert-danger" *ngIf='f.imageUrl.touched && f.imageUrl.errors?.required'>
+      Picture is required
+    </div>
+    <div>
+      <label htmlFor="foodType">Food Type</label>
+      <select type="text" id="foodType" formControlName='foodType' defaultValue=''>
+        <option *ngFor="let f of foodTypes" [ngValue]="f">{{ f }}</option>
+      </select>
+    </div>
+    <div class="alert alert-danger" *ngIf='f.foodType.touched && f.foodType.errors?.required'>
+      Food Type is required
+    </div>
+    <div>
+      <label htmlFor="dogAge">Life Stage</label>
+      <select type="text" id="dogAge" formControlName='dogAge' defaultValue=''>
+        <option *ngFor="let a of age" [ngValue]="a">{{ a }}</option>
+      </select>
+    </div>
+    <div class="alert alert-danger" *ngIf='f.dogAge.touched && f.dogAge.errors?.required'>
+      Life Stage is required
+    </div>
+    <div>
+      <label htmlFor="description">Description</label>
+      <textarea id="description" formControlName='description'></textarea>
+    </div>
+    <div class="alert alert-danger" *ngIf='f.description.touched && f.description.errors?.required'>
+      Description is required
+    </div>
+    <div class="alert alert-danger" *ngIf='f.description.errors?.minlength'>
+      Description must contain more than 15 symbols!
+    </div>
+    <div>
+      <label htmlFor="size">Size</label>
+      <input type="text" id="size" formControlName='size' />
+    </div>
+    <div class="alert alert-danger" *ngIf='f.size.touched && f.size.errors?.required'>
+      Size is required
+    </div>
+    <div class="alert alert-danger" *ngIf='f.size.errors?.min'>
+      Size must be more than 0.1 kg!
+    </div>
+    <div>
+      <label htmlFor="price">Price</label>
+      <input id="price" formControlName='price' />
+    </div>
+    <div class="alert alert-danger" *ngIf='f.price.touched && f.price.errors?.required'>
+      Price is required
+    </div>
+    <div class="alert alert-danger" *ngIf='f.price.errors?.min'>
+      Price must be more than 0.1 lv!
+    </div>
+    <input type="submit" value="Create" [disabled]='invalid' />
+  </form>
+</div>

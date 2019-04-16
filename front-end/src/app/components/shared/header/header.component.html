@@ -8,7 +8,7 @@
         <a routerLink='/'>Welcome {{username}}!</a>
         <a routerLink='/order'>My Orders</a>
         <span *ngIf="authService.isAdmin()">
-          <a routerLink="/create">Create</a>
+          <a routerLink="dogFood/create">Create</a>
         </span>
         <a routerLink='/' (click)="logout()">Logout</a>
       </span>

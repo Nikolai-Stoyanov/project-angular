@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DogFood } from '../shared/models/Dog-Food';
 import { DogFoodService } from 'src/app/core/services/dog-food.sevices';
+import { AuthService } from 'src/app/core/services/auth.services';
 
 @Component({
   selector: 'app-home',
@@ -12,14 +13,12 @@ export class HomeComponent implements OnInit {
 
   dogfoods$:Observable<Array<DogFood>>
   
-  constructor(private dogFoodService:DogFoodService) { }
+  constructor(private dogFoodService:DogFoodService, private authService:AuthService) { }
 
   ngOnInit() {
-    // setTimeout(()=>{
-    //   this.dogfoods$= this.dogFoodService.getAllFood();
-    // },3000)
-    this.dogfoods$= this.dogFoodService.getAllFood();
-    
+    this.dogFoodService.getAllFood().subscribe(data=>{
+      this.dogfoods$= data['dogfood']
+    });
   }
 
 }

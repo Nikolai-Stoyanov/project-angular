@@ -6,7 +6,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.services';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [
+    LoginComponent, 
+    RegisterComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
