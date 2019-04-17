@@ -5,10 +5,13 @@ import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { DetailsComponent } from './details/details.component';
 import { ListComponent } from './list/list.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 
 const dogFoodRoutes:Route[]=[
     { path: '', component: ListComponent },
       { path: 'create', component: CreateComponent },
+      { path: 'list', component: ListComponent },
+      { path: 'purchase/:id', component: PurchaseComponent },
       { path: 'edit/:id', component: EditComponent },
       { path: 'details/:id', component: DetailsComponent }
 ]

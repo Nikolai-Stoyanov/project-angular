@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   dogfoods$:Observable<Array<DogFood>>
   
-  constructor(private dogFoodService:DogFoodService, private authService:AuthService) { }
+  constructor(private dogFoodService:DogFoodService, public authService:AuthService) { }
 
   ngOnInit() {
     this.dogFoodService.getAllFood().subscribe(data=>{

@@ -1,33 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { DogFood } from '../../components/shared/models/Dog-Food';
 import { Observable } from 'rxjs';
+import { Order } from 'src/app/components/shared/models/Order';
 
-const createF='http://localhost:9999/dogFood/create';
-const getAllF='http://localhost:9999/dogFood/all';
-const getSingleF='http://localhost:9999/dogFood/details/';
-const deleteF='http://localhost:9999/dogFood/delete/';
+const createOrder = 'http://localhost:9999/feed/order/create';
+const getAllOrder = 'http://localhost:9999/feed/order';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class FurnitureService {
-  
-  constructor(private http:HttpClient) { }
+export class OrderService {
 
-  createFurniture(data){
-    return this.http.post(createF, data);
+  constructor(private http: HttpClient, ) { }
+
+  createOrder(data) {
+    return this.http.post(createOrder, data);
   }
 
-  getAllFurniture():Observable<Array<DogFood>>{
-    return this.http.get<Array<DogFood>>(getAllF)
-  }
-
-  getFurniture(id):Observable<DogFood>{
-    return this.http.get<DogFood>(getSingleF + id)
-  }
-
-deleteFurniture(id){
-    return this.http.delete(deleteF + id)
+  getAllOrder(): Observable<Array<Order>> {
+    return this.http.get<Array<Order>>(getAllOrder)
   }
 }

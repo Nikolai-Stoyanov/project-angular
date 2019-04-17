@@ -3,7 +3,7 @@
     <form [formGroup]='form' (submit)='editFood()'>
       <div>
         <label htmlFor="title">Title</label>
-        <input type="text" id="title" formControlName='title' />
+        <input type="text" formControlName='title' value="{{dogfoods$.title}}" />
       </div>
       <div class="alert alert-danger" *ngIf='f.title.touched && f.title.errors?.required'>
         Title is required
@@ -13,7 +13,7 @@
       </div>
       <div>
         <label htmlFor="brand">Brand</label>
-        <input type="text" id="brand" formControlName='brand' />
+        <input type="text" id="brand" formControlName='brand' value="{{dogfoods$.brand}}" />
       </div>
       <div class="alert alert-danger" *ngIf='f.brand.touched && f.brand.errors?.required'>
         Brand is required
@@ -23,15 +23,15 @@
       </div>
       <div>
         <label htmlFor="imageUrl">Picture</label>
-        <input type="text" id="imageUrl" formControlName='imageUrl' />
+        <input type="text" id="imageUrl" formControlName='imageUrl' value="{{dogfoods$.imageUrl}}" />
       </div>
       <div class="alert alert-danger" *ngIf='f.imageUrl.touched && f.imageUrl.errors?.required'>
         Picture is required
       </div>
       <div>
         <label htmlFor="foodType">Food Type</label>
-        <select type="text" id="foodType" formControlName='foodType' defaultValue=''>
-          <option *ngFor="let f of foodTypes" [ngValue]="f">{{ f }}</option>
+        <select type="text" id="foodType" formControlName='foodType' value='{{dogfoods$.foodType}}' >
+          <option *ngFor="let f of foodTypes"  >{{ f }}</option>
         </select>
       </div>
       <div class="alert alert-danger" *ngIf='f.foodType.touched && f.foodType.errors?.required'>
@@ -39,8 +39,8 @@
       </div>
       <div>
         <label htmlFor="dogAge">Life Stage</label>
-        <select type="text" id="dogAge" formControlName='dogAge' defaultValue=''>
-          <option *ngFor="let a of age" [ngValue]="a">{{ a }}</option>
+        <select type="text" id="dogAge" formControlName='dogAge' value="{{dogfoods$.dogAge}}">
+          <option *ngFor="let a of age" >{{ a }}</option>
         </select>
       </div>
       <div class="alert alert-danger" *ngIf='f.dogAge.touched && f.dogAge.errors?.required'>
@@ -48,7 +48,7 @@
       </div>
       <div>
         <label htmlFor="description">Description</label>
-        <textarea id="description" formControlName='description'></textarea>
+        <textarea id="description" formControlName='description' value="{{dogfoods$.description}}"></textarea>
       </div>
       <div class="alert alert-danger" *ngIf='f.description.touched && f.description.errors?.required'>
         Description is required
@@ -58,7 +58,7 @@
       </div>
       <div>
         <label htmlFor="size">Size</label>
-        <input type="text" id="size" formControlName='size' />
+        <input type="text" id="size" formControlName='size' value="{{dogfoods$.size}}"/>
       </div>
       <div class="alert alert-danger" *ngIf='f.size.touched && f.size.errors?.required'>
         Size is required
@@ -68,7 +68,7 @@
       </div>
       <div>
         <label htmlFor="price">Price</label>
-        <input id="price" formControlName='price' />
+        <input id="price" formControlName='price' value="{{dogfoods$.price}}"/>
       </div>
       <div class="alert alert-danger" *ngIf='f.price.touched && f.price.errors?.required'>
         Price is required
@@ -76,6 +76,6 @@
       <div class="alert alert-danger" *ngIf='f.price.errors?.min'>
         Price must be more than 0.1 lv!
       </div>
-      <input type="submit" value="Edit" [disabled]='invalid' />
+      <input type="submit" value="Edit"  />
     </form>
   </div>

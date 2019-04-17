@@ -1,4 +1,4 @@
-export interface DogFood {
+export interface Order {
     creator: string;
     product: string;
     date: string;

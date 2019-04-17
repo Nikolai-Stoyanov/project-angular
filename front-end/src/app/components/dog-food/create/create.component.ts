@@ -13,7 +13,9 @@ export class CreateComponent implements OnInit {
   default: string = '';
   age:string[]=["Adult","Puppy","Senior"];
   form;
-  constructor(private fb: FormBuilder, private dogFoodService:DogFoodService, private router:Router) { }
+  constructor(private fb: FormBuilder, private dogFoodService:DogFoodService, private router:Router) { 
+    
+  }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -30,7 +32,7 @@ export class CreateComponent implements OnInit {
 
   createFood(){
     this.dogFoodService.createFood(this.form.value).subscribe((data)=>{
-        this.router.navigate(['/'])
+      this.router.navigate(['./dogFood/list'])
     })
   }
 

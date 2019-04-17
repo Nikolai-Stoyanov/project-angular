@@ -54,17 +54,17 @@
     width: 200px;
   }
   
-  .butons {
+  .butons, button {
     display: inline-block;
     text-decoration: none;
     text-align: center;
-    padding: 0;
+    padding: 5px;
   }
   
   .btn {
     display: inline-block;
-    width: 25%;
-    margin: 5px 5px 5px 5px;
+    width: 60%;
+    margin: 5px;
     text-align: center;
     font-size: 14px;
     background-color: rgba(12, 204, 38);
@@ -72,7 +72,7 @@
     border-radius: 7px;
     text-decoration: none;
     box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
-    padding: 10px 10px;
+    padding: 10px;
   }
   
   .btn:hover {

@@ -5,27 +5,27 @@
   <section class="Home">
     <h1>What we offer</h1>
     <div class="all-products">
-      <ul class="products">
-        <div class="row space-top" *ngIf='dogfoods$'>
-          <div  *ngFor='let food of dogfoods$'>
-            <li class="product">
+      <ul class="products" *ngIf='dogfoods$'>
+        <!-- <div class="row space-top" *ngIf='dogfoods$'> -->
+          <!-- <div  *ngFor='let food of dogfoods$'> -->
+            <li class="product"  *ngFor='let food of dogfoods$'>
               <section>
                 <h5>{{food.title}}</h5>
                 <img alt="pic" src={{food.imageUrl}}/>
               </section>
               <div class="butons">
-                <a class="btn" type='button' routerLink="['/dogFood/details/',food.id]">Details</a> 
+                <a class="btn" type='button' routerLink="['/dogFood/details/',food._id]">Details</a> 
                 <div *ngIf='authService.isAuthenticated()'>
-                  <a class="btn" type='button' [routerLink]="['/dogFood/buy/',food.id]">Buy</a> 
+                  <a class="btn" type='button' [routerLink]="['/dogFood/purchase/',food._id]">Buy</a> 
                 </div> 
                 <div *ngIf='authService.isAdmin()'>
-                    <a class="btn" type='button' [routerLink]="['/dogFood/edit/',food.id]">Edit</a> 
-                    <a class="btn" type='button' [routerLink]="['/dogFood/delete/',food.id]">Delete</a>
+                    <a class="btn" type='button' [routerLink]="['/dogFood/edit/',food._id]">Edit</a> 
+                    <!-- <a class="btn" type='button' [routerLink]="['/dogFood/delete/',food._id]">Delete</a> -->
                 </div> 
               </div> 
             </li> 
-          </div> 
-        </div>
+          <!-- </div> 
+        </div> -->
       </ul>
     </div>
   </section>

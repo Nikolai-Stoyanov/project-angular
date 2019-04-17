@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 const createF = 'http://localhost:9999/feed/dogFood/create';
 const editF = 'http://localhost:9999/feed/dogFood/edit/';
 const getAllF = 'http://localhost:9999/feed/dogFood';
-const getSingleF = 'http://localhost:9999/dogFood/details/';
-const deleteF = 'http://localhost:9999/dogFood/delete/';
+const getSingleF = 'http://localhost:9999/feed/dogFood/details/';
+const deleteF = 'http://localhost:9999/feed/dogFood/delete/';
 
 @Injectable({
   providedIn: 'root'

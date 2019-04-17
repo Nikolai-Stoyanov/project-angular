@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DogFood } from '../../shared/models/Dog-Food';
+import { DogFoodService } from 'src/app/core/services/dog-food.sevices';
+import { AuthService } from 'src/app/core/services/auth.services';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  dogfoods$:Observable<Array<DogFood>>
+  
+  constructor(private dogFoodService:DogFoodService, private authService:AuthService) { }
 
   ngOnInit() {
+    this.dogFoodService.getAllFood().subscribe(data=>{
+      this.dogfoods$= data['dogfood']
+    });
   }
 
 }

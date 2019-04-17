@@ -1,7 +1,7 @@
 const Order = require('../models/Order');
 
 module.exports = {
-  getOrder: (req, res) => {
+  getOrder: (req, res,next) => {
     Order.find()
       .then((order) => {
         res

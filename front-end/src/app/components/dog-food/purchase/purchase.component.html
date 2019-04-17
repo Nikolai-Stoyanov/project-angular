@@ -1,3 +1,26 @@
-<p>
-  purchase works!
-</p>
+<div class="Buy">
+  <h2>To buy {{dogfoods$.title}}</h2>
+  <div class='section'>
+    <section class='first-section'>
+      <img alt="pic" src={{dogfoods$.imageUrl}} />
+    </section>
+    <section class='second-section'>
+      <h1>Brand: {{dogfoods$.brand}}</h1>
+      <ul>
+        <li><span>Description:</span> {{dogfoods$.description}}</li>
+        <li><span>Food Type:</span> {{dogfoods$.foodType}}</li>
+        <li><span>Life Stage:</span> {{dogfoods$.dogAge}}</li>
+        <li><span>Size:</span> {{dogfoods$.size}} kg</li>
+        <li><span>Price:</span> {{dogfoods$.price}} lv</li>
+      </ul>
+    </section>
+  </div>
+  <div>
+    <ul>
+      <div>
+        <input type="number" (change)="getQuantity($event)" name="quantity" id="quantity" step="1" min="0" />
+        <a class="btn"  type='btn' (click)='purchase()' routerlink='/'>Add to Order</a>
+      </div>
+    </ul>
+  </div>
+</div>
