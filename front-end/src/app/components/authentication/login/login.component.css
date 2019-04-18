@@ -37,6 +37,6 @@
     background: transparent;
   }
 
-  button{
+  input[type="submit"]:disabled{
     cursor: not-allowed;
 }

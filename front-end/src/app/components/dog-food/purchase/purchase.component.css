@@ -77,3 +77,6 @@
     margin-bottom: 20px;
   }
   
+  input[type="submit"]:disabled{
+    cursor: not-allowed;
+}

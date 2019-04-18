@@ -16,11 +16,11 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'order', component: OrderComponent },
+  { path: 'order', component: OrderComponent,canActivate: [AuthGuard] },
    {
     path: 'dogFood', loadChildren:'./components/dog-food/dog-food.module#DogFoodModule'
   },
-
+  { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({

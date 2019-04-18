@@ -12,6 +12,8 @@ import { AuthService } from 'src/app/core/services/auth.services';
 export class ListComponent implements OnInit {
 
   dogfoods$:Observable<Array<DogFood>>
+  isAdmin;
+  isLoggedIn;
   
   constructor(private dogFoodService:DogFoodService, private authService:AuthService) { }
 
@@ -19,6 +21,10 @@ export class ListComponent implements OnInit {
     this.dogFoodService.getAllFood().subscribe(data=>{
       this.dogfoods$= data['dogfood']
     });
+  }
+  ngDoCheck(){
+    this.isLoggedIn=this.authService.isAuthenticated();
+    this.isAdmin=this.authService.isAdmin();
   }
 
 }

@@ -1,5 +1,5 @@
-<div class="Create col-md-3">
-    <h1>Edit DogFood</h1>
+<div class="Create " *ngIf="dogfoods$">
+    <h2>Edit: {{dogfoods$.title}}</h2>
     <form [formGroup]='form' (submit)='editFood()'>
       <div>
         <label htmlFor="title">Title</label>
@@ -76,6 +76,6 @@
       <div class="alert alert-danger" *ngIf='f.price.errors?.min'>
         Price must be more than 0.1 lv!
       </div>
-      <input type="submit" value="Edit"  />
+      <input type="submit" value="Edit"  [disabled]='form.invalid'/>
     </form>
   </div>

@@ -1,69 +1,68 @@
 .Home h1 {
-    background: rgba(17, 233, 17);
-    margin: 0;
-    text-align: center;
-    font-size: 30px;
-  }
+  background: rgba(17, 233, 17);
+  margin: 0;
+  text-align: center;
+  font-size: 30px;
+}
+
+.Home {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 30px
+}
+
+/* .all-products {
+  display: flex;
+  margin: 0;
   
-  .Home {
-    text-align: center;
-    margin: 0;
-    margin-bottom: 30px
-  }
-  
-  /* .all-products {
-    display: flex;
-    margin: 0;
-    
-  } */
-  
-  .products li {
-    display: inline-block;
-    text-align: center;
-    margin: 5px 5px 5px 5px;
-    padding: 5px 5px 5px 5px;
-    width: 30%;
-  }
-  
-  /* .product {
-    display: inline-block;
-  } */
-  
-  .product section {
-    text-align: center;
-    display: grid;
-  }
-  
-  .Home img {
-    margin: 0 auto;
-    height: 300px;
-    width: 200px;
-  }
-  
-  .butons {
-    display: inline-block;
-    text-decoration: none;
-    text-align: center;
-    padding: 0;
-  }
-  
-  .btn {
-    display: inline-block;
-    width: 25%;
-    margin: 5px 5px 5px 5px;
-    text-align: center;
-    font-size: 14px;
-    background-color: rgba(12, 204, 38);
-    color: white;
-    border-radius: 7px;
-    text-decoration: none;
-    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
-    padding: 10px 10px;
-  }
-  
-  .btn:hover {
-    color: rgba(12, 204, 38);
-    background: transparent;
-  }
-  
-  
+} */
+
+.products li {
+  display: inline-block;
+  text-align: center;
+  margin: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+  width: 30%;
+}
+
+/* .product {
+  display: inline-block;
+} */
+
+.product section {
+  text-align: center;
+  display: grid;
+}
+
+.Home img {
+  margin: 0 auto;
+  height: 300px;
+  width: 200px;
+}
+
+.butons div {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  padding: 5px;
+}
+
+.btn {
+  display: inline-block;
+  width: 80px;
+  margin: 5px;
+  text-align: center;
+  font-size: 16px;
+  background-color: rgba(12, 204, 38);
+  color: white;
+  border-radius: 7px;
+  text-decoration: none;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+.btn:hover {
+  color: rgba(12, 204, 38);
+  background: transparent;
+}
+

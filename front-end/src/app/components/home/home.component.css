@@ -54,7 +54,7 @@
     width: 200px;
   }
   
-  .butons, button {
+  .butons div {
     display: inline-block;
     text-decoration: none;
     text-align: center;
@@ -63,10 +63,10 @@
   
   .btn {
     display: inline-block;
-    width: 60%;
+    width: 80px;
     margin: 5px;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     background-color: rgba(12, 204, 38);
     color: white;
     border-radius: 7px;

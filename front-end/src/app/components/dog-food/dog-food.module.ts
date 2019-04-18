@@ -31,6 +31,7 @@ import { DogFoodRoutingModule } from './dog-food-routing.module';
   ],
   providers: [
     DogFoodService,
+    
   ]
 })
 export class DogFoodModule { }

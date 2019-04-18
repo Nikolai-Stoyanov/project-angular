@@ -30,6 +30,10 @@ export class AuthService {
     return localStorage.getItem('isAdmin') !== "false";
   }
 
+  getName(){
+    return localStorage.getItem('username');
+  }
+
   getToken(){
     let token=localStorage.getItem('token');
     return token;

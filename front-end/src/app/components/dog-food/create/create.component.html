@@ -1,4 +1,4 @@
-<div class="Create col-md-3">
+<div class="Create">
   <h1>Create DogFood</h1>
   <form [formGroup]='form' (submit)='createFood()'>
     <div>
@@ -76,6 +76,6 @@
     <div class="alert alert-danger" *ngIf='f.price.errors?.min'>
       Price must be more than 0.1 lv!
     </div>
-    <input type="submit" value="Create" [disabled]='invalid' />
+    <input type="submit" value="Create" [disabled]='form.invalid' />
   </form>
 </div>

@@ -1,4 +1,4 @@
-<div class="Buy">
+<div class="Buy" *ngIf="dogfoods$">
   <h2>To buy {{dogfoods$.title}}</h2>
   <div class='section'>
     <section class='first-section'>
@@ -17,10 +17,17 @@
   </div>
   <div>
     <ul>
-      <div>
-        <input type="number" (change)="getQuantity($event)" name="quantity" id="quantity" step="1" min="0" />
-        <a class="btn"  type='btn' (click)='purchase()' routerlink='/'>Add to Order</a>
-      </div>
+      <form [formGroup]='form' (submit)='purchase()'>
+        <input type="number" formControlName="quantity" id="quantity" step="1" />
+        <div class="alert alert-danger"
+          *ngIf='form?.controls.quantity?.touched && form?.controls.quantity?.errors?.required'>
+          This field is required!
+        </div>
+        <div class="alert alert-danger" *ngIf='form?.controls.quantity?.errors?.min'>
+          Quantity must be equal to or greater than 1!
+        </div>
+        <input class="btn" type="submit" value="Add to Order" [disabled]='form.invalid' />
+      </form>
     </ul>
   </div>
 </div>

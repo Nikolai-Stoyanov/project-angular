@@ -17,8 +17,18 @@ export class ResponseHandlerInterceptorService implements HttpInterceptor {
   
     return next.handle(req).pipe(tap((success)=>{
       if (success instanceof HttpResponse) {
-        if (success.url.endsWith('signin') || success.url.endsWith('signup') || success.url.includes('create') || success.url.includes('delete')) {
-          this.toastr.success('Success','Success')
+        if (success.url.endsWith('signin')) {
+          this.toastr.success('Login Success')
+        }else if(success.url.endsWith('signup')){
+          this.toastr.success('Register Success')
+        }else if(success.url.includes('order/create')){
+          this.toastr.success('Purchase create success')
+        }else if(success.url.includes('create')){
+          this.toastr.success('Create Success')
+        }else if(success.url.includes('delete')){
+          this.toastr.success('Delete item success')
+        }else if(success.url.includes('edit')){
+          this.toastr.success('Edit Success')
         }
       }
       

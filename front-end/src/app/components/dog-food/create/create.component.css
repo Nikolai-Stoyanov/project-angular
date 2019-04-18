@@ -52,3 +52,7 @@
     color: black;
     background: transparent;
   }
+
+  input[type="submit"]:disabled{
+    cursor: not-allowed;
+}

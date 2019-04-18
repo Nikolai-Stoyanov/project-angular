@@ -15,7 +15,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './components/shared/shared.module';
 import { AuthenticationModule } from './components/authentication/authentication.module';
-import { DogFoodModule } from './components/dog-food/dog-food.module';
 import { UserModule } from './components/user/user.module';
 
 
