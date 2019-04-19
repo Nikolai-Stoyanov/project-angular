@@ -18,10 +18,10 @@
   <div>
     <ul>
       <form [formGroup]='form' (submit)='purchase()'>
-        <input type="number" formControlName="quantity" id="quantity" step="1" />
+        <input type="number" formControlName="quantity" id="quantity" step="1" placeholder="Quantity" />
         <div class="alert alert-danger"
           *ngIf='form?.controls.quantity?.touched && form?.controls.quantity?.errors?.required'>
-          This field is required!
+          Quantity is required!
         </div>
         <div class="alert alert-danger" *ngIf='form?.controls.quantity?.errors?.min'>
           Quantity must be equal to or greater than 1!

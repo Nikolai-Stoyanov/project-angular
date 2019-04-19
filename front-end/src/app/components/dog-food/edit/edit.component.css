@@ -14,16 +14,12 @@ h2{
     background-color:  rgb(13, 255, 45);;
   }
   
-  .Create input, textarea, select {
-    /* padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 10px; */
+  .Create input, select {
     width: 90%;
-    height: 30px;
-  padding: 5px 5px;
+    height: 35px;
+  padding: 5px;
   margin: 8px 5px;
   box-sizing: border-box;
-
   }
 
   textarea {
@@ -34,7 +30,6 @@ h2{
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
-    /* background-color: #f8f8f8; */
     resize: none;
   }
   

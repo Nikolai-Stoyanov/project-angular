@@ -31,9 +31,9 @@ form
       quantity: ['', [Validators.required, Validators.min(1)]],
     })
     let id = this.route.snapshot.params['id'];
-    this.dogFoodService.getAllFood().subscribe(data=>{
-      this.dogfoods$= data['dogfood'].filter(f => f._id === id)[0]
-    });
+    this.dogFoodService.getFood(id).subscribe(data=>{
+      this.dogfoods$=data['dogfood']
+    })
   }
 
   purchase(){

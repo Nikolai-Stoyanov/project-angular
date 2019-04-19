@@ -66,6 +66,22 @@ module.exports = {
       });
   },
 
+  detailsDogFood: (req, res) => {
+    const dogFoodId = req.params.id
+    DogFood.findById(dogFoodId)
+      .then((dogfood) => {
+        res
+          .status(200)
+          .json({ message: 'Fetched dogfood successfully.', dogfood });
+      })
+      .catch((error) => {
+        if (!error.statusCode) {
+          error.statusCode = 500;
+        }
+        next(error);
+      });
+  },
+
   deleteDogFood: (req, res) => {
     const dogFoodId = req.params.id
     DogFood.findById(dogFoodId)

@@ -11,53 +11,57 @@ import { Observable } from 'rxjs';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  foodTypes:string[]=["Canned Food","Dry Food","Veterinary Diets","Treats"];
-  age:string[]=["Adult","Puppy","Senior"];
+  foodTypes: string[] = ["Canned Food", "Dry Food", "Veterinary Diets", "Treats"];
+  age: string[] = ["Adult", "Puppy", "Senior"];
   form;
-  food:DogFood;
-  dogfoods$:Observable<Array<DogFood>>
+  dogfoods$: Observable<Array<DogFood>>
   id = this.route.snapshot.params['id'];
-  constructor(private fb: FormBuilder, private dogFoodService:DogFoodService, private router:Router,private route: ActivatedRoute,) { 
-    
-    this.dogFoodService.getAllFood().subscribe((data)=>{
-      this.dogfoods$=data['dogfood'].filter(f => f._id === this.id)[0];
-      this.form.value["title"]=this.dogfoods$["title"]
-      this.form.value["brand"]=this.dogfoods$["brand"]
-      this.form.value["imageUrl"]=this.dogfoods$["imageUrl"]
-      this.form.value["foodType"]=this.dogfoods$["foodType"]
-      this.form.value["dogAge"]=this.dogfoods$["dogAge"]
-      this.form.value["description"]=this.dogfoods$["description"]
-      this.form.value["price"]=this.dogfoods$["price"]
-      this.form.value["size"]=this.dogfoods$["size"]
-      console.log(this.form)
-    })
-  }
+
+  constructor
+  (
+    private fb: FormBuilder, 
+    private dogFoodService: DogFoodService, 
+    private router: Router, 
+    private route: ActivatedRoute, 
+  ) {}
 
   ngOnInit() {
+    this.getProduct();
     this.form = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(4)]],
       brand: ['', [Validators.required, Validators.minLength(4)]],
       imageUrl: ['', [Validators.required]],
       foodType: ['', [Validators.required]],
       dogAge: ['', [Validators.required]],
-      description: ['', [Validators.required,Validators.minLength(15)]],
+      description: ['', [Validators.required, Validators.minLength(15)]],
       size: ['', [Validators.required, Validators.min(0.1)]],
       price: ['', [Validators.required, Validators.min(0.1)]],
     })
   }
 
-  editFood(){
-    this.dogFoodService.editFood(this.form.value,this.id).subscribe((data)=>{
-      this.router.navigate(['./dogFood/list'])
+  getProduct() {
+    this.dogFoodService.getFood(this.id).subscribe(data=>{
+      this.dogfoods$=data['dogfood'];
+      this.form.setValue({
+        title: this.dogfoods$["title"],
+        brand: this.dogfoods$["brand"],
+        imageUrl: this.dogfoods$["imageUrl"],
+        foodType: this.dogfoods$["foodType"],
+        dogAge: this.dogfoods$["dogAge"],
+        description: this.dogfoods$["description"],
+        price: this.dogfoods$["price"],
+        size: this.dogfoods$["size"],
+      })
     })
   }
 
+  editFood(){
+        this.dogFoodService.editFood(this.form.value, this.id).subscribe((data) => {
+          this.router.navigate(['./dogFood/list'])
+        })
+      }
+
   get f(){
-    return this.form.controls
-  }
-
-  // get invalid(){
-  //   return this.form.invalid
-  // }
-
+        return this.form.controls
+      }
 }

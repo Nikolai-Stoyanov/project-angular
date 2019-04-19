@@ -8,6 +8,7 @@ router.get('/dogFood', feedController.getDogFood);
 router.post('/dogFood/create',  feedController.createDogFood);
 router.post('/dogFood/edit/:id', feedController.editDogFood);
 router.delete('/dogFood/delete/:id', feedController.deleteDogFood);
+router.get('/dogFood/details/:id', feedController.detailsDogFood);
 
 router.get('/order', orderController.getOrder);
 router.post('/order/create', orderController.createOrder);
